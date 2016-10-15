@@ -6,4 +6,5 @@ package com.vlad.homework1;
 
 public class Config {
     public static final String TAG = "MyLogs";
+    // создание констан для вывода в лог 
 }
