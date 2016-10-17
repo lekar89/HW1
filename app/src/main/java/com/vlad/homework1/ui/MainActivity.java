@@ -83,53 +83,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 createNotification();
+                // вызов метода 
             }
         });
         Log.d(Config.TAG, "MainActivity - onCreate");
+        //сообщение в консоль выполнится при отработке метода 
     }
 
     @Override
     protected void onStart() {
+        // Вызывается непосредственно перед тем, как активность становится видимой
         super.onStart();
         Log.d(Config.TAG, "MainActivity - onStart");
+        //сообщение в консоль выполнится при отработке метода 
     }
 
     @Override
     protected void onResume() {
+        // вызывается  каждый раз, когда  активность идёт на переднем плане
         super.onResume();
         Log.d(Config.TAG, "MainActivity - onResume");
+        //сообщение в консоль выполнится при отработке метода 
     }
 
     @Override
     protected void onPause() {
+        // вызывается при свертывании активности 
         super.onPause();
         Log.d(Config.TAG, "MainActivity - onPause");
+        //сообщение в консоль выполнится при отработке метода 
     }
 
     @Override
     protected void onStop() {
+        //вызывается, когда окно становится невидимым для пользователя. 
+        //при её уничтожении, или если была запущена другая активность перекрывшая окно текущей активности
         super.onStop();
         Log.d(Config.TAG, "MainActivity - onStop");
+        //сообщение в консоль выполнится при отработке метода 
     }
 
     @Override
     protected void onRestart() {
+        // активность была остановлена и снова была запущена пользователем
         super.onRestart();
+        Log.d(Config.TAG, "MainActivity - onRestart");
+          //сообщение в консоль выполнится при отработке метода 
     }
 
     @Override
     protected void onDestroy() {
+        //вызывается по окончании работы активности, при вызове метода finish() или в случае, когда система уничтожает этот экземпляр активности
         super.onDestroy();
         Log.d(Config.TAG, "MainActivity - onDestroy");
+        //сообщение в консоль выполнится при отработке метода 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
+        // метод используется для извлечения данных из интента который предает дочерняя активность
         super.onActivityResult(requestCode, resultCode, data);
 
         String name = data.getStringExtra("name");
+        //создание переменной и задние ей значения из интента методом getStringExtra по ключю name
         mainTextView.setText("Your name is " + name);
+        // назначение полю mainTextView текста 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
