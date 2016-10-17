@@ -20,42 +20,65 @@ import com.vlad.homework1.R;
 public class MainActivity extends AppCompatActivity {
 
     TextView mainTextView;
+    // переменная класа типа  TextView
     Button mBtnFollowSecAct;
-    Button mBtnStartForResult;
-    Button mBtnSendNot;
-
+      // переменная класа типа Button
+    Button mBtnStartForResult; 
+         // переменная класа типа Button
+    Button mBtnSendNot;    
+        // переменная класа типа Button
     private static final int NOTIFY_ID = 101;
-
+// константа для ид уведомления 
     @Override
     protected void onCreate(Bundle savedInstanceState)
+        //вызывается при создании или перезапуска активности
+        // принимает объект Bundle, содержащий состояние пользовательского интерфейса, 
+        //сохранённое в последнем вызове обработчика onSaveInstanceState.
     {
+        
         super.onCreate(savedInstanceState);
+        //вызов родиельского метода содержащий состояние пользовательского интерфейса, 
+        //сохранённое в последнем вызове обработчика onSaveInstanceState.
         setContentView(R.layout.activity_main);
+        // соединение разметки и активити 
 
         mainTextView = (TextView) findViewById(R.id.txt_main_activity);
+          // назанчение перменной предствления из разметки и приведение представления к типу TextView
         mainTextView.setText("Main Activity");
+        //вызов методау переменной mainTextView  для установки текста 
 
         mBtnFollowSecAct = (Button) findViewById(R.id.btn_followMain_activity);
+            // назанчение перменной предствления из разметки и приведение представления к типу Button
         mBtnFollowSecAct.setOnClickListener(new View.OnClickListener() {
+            // назначени и создание листенера для перхода на вторую активность
             @Override
             public void onClick(View v)
             {
+               
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                // создание намериния агрументами передаем для какой активности вызван и какую хотим вызвать 
                 startActivity(intent);
+                //запуск другой активности без возможности передавать данные 
             }
         });
 
         mBtnStartForResult = (Button) findViewById(R.id.btn_forResult);
+         // назанчение перменной предствления из разметки и приведение представления к типу Button
         mBtnStartForResult.setOnClickListener(new View.OnClickListener() {
+              // назначени и создание листенера для перхода на вторую активность
             @Override
             public void onClick(View v) {
                 Intent result = new Intent(MainActivity.this, SecondActivity.class);
+                // создание намериния агрументами передаем для какой активности вызван и какую хотим вызвать 
                 startActivityForResult(result, 1);
+                 //запуск другой активности с возможностью передавать данные 
             }
         });
 
         mBtnSendNot = (Button) findViewById(R.id.btn_sendNotification);
+         // назанчение перменной предствления из разметки и приведение представления к типу Button
         mBtnSendNot.setOnClickListener(new View.OnClickListener() {
+             // назначени и создание листенера для вызова уведомления 
             @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
             @Override
             public void onClick(View v) {
